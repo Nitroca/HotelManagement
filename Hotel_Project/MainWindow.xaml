@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel_Project"
-        mc:Ignorable="d" Background="LightSteelBlue"
-        Title="Hotel Management" Height="400" Width="550">
+        mc:Ignorable="d"
+        Title="Hotel Management" Height="350" Width="535">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
