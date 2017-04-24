@@ -4,21 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel_Project"
-        mc:Ignorable="d" Background="AliceBlue"
+        mc:Ignorable="d" Background="Lavender"
         Title="Hotel Management" Height="350" Width="535">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" 
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
                    Text="Hotel Management App" FontSize="32" Margin="0,80,0,0"
                    HorizontalAlignment="Center"/>
 
-        <TextBox Grid.Row="1" Grid.Column="0" Margin="270,30,50,130"
-                 
-                 />
+        <TextBox x:Name="usernameBox" Grid.Row="1" Margin="163,26,161,104" HorizontalAlignment="Center" Width="203" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passwordBox" Grid.Row="1" Margin="163,60,160,70" Grid.ColumnSpan="2" />
+       
+        <Button x:Name="button" Grid.ColumnSpan="2" 
+                Content="Log In" HorizontalAlignment="Center" 
+                Margin="225,110,225,10" Grid.Row="1" 
+                VerticalAlignment="Top" Width="80"/>
+        
+
+
 
     </Grid>
 </Window>

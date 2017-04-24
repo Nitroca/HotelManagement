@@ -84,6 +84,12 @@
     <Compile Include="additional.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="adminUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="booking.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

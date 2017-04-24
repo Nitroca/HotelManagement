@@ -23,6 +23,13 @@
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="adminUsers">
+          <Key>
+            <PropertyRef Name="Admin_name" />
+          </Key>
+          <Property Name="Admin_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin_Password" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="booking">
           <Key>
             <PropertyRef Name="Booking_ID" />
@@ -204,6 +211,7 @@
         <EntityContainer Name="ehotelModelStoreContainer">
           <EntitySet Name="additional" EntityType="Self.additional" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adminUsers" EntityType="Self.adminUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
@@ -300,6 +308,7 @@
             <End Role="reservation" EntitySet="reservation" />
           </AssociationSet>
           <EntitySet Name="admin" EntityType="ehotelModel.admin" />
+          <EntitySet Name="adminUsers" EntityType="ehotelModel.adminUsers" />
         </EntityContainer>
         <EntityType Name="additional">
           <Key>
@@ -515,6 +524,13 @@
           <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="adminUsers">
+          <Key>
+            <PropertyRef Name="Admin_name" />
+          </Key>
+          <Property Name="Admin_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -616,6 +632,14 @@
               <MappingFragment StoreEntitySet="admin">
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminUsers">
+            <EntityTypeMapping TypeName="ehotelModel.adminUsers">
+              <MappingFragment StoreEntitySet="adminUsers">
+                <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+                <ScalarProperty Name="Admin_name" ColumnName="Admin_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
