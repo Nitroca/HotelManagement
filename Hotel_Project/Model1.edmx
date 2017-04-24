@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ehotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="additional">
+          <Key>
+            <PropertyRef Name="Additional_ID" />
+          </Key>
+          <Property Name="Additional_ID" Type="int" Nullable="false" />
+          <Property Name="Booking_ID" Type="int" />
+          <Property Name="Service_ID" Type="int" />
+          <Property Name="Extra_ID" Type="int" />
+          <Property Name="Additional_Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Additional_Info" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+          </Key>
+          <Property Name="Booking_ID" Type="int" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="Room_ID" Type="int" />
+          <Property Name="Booking_adults" Type="int" />
+          <Property Name="Booking_kids" Type="int" />
+          <Property Name="Booking_CheckIN" Type="datetime" />
+          <Property Name="Booking_CheckOUT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="Category_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_CreditCard_Nr" Type="int" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" Nullable="false" />
+          <Property Name="Employee_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Employee_Firstname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="extra">
+          <Key>
+            <PropertyRef Name="Extra_ID" />
+          </Key>
+          <Property Name="Extra_ID" Type="int" Nullable="false" />
+          <Property Name="Extra_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra_Price" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="reservation">
+          <Key>
+            <PropertyRef Name="reservation_ID" />
+          </Key>
+          <Property Name="reservation_ID" Type="int" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="Booking_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="Room_ID" />
+          </Key>
+          <Property Name="Room_ID" Type="int" Nullable="false" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="Room_Price" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="Service_ID" />
+          </Key>
+          <Property Name="Service_ID" Type="int" Nullable="false" />
+          <Property Name="Service_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service_Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Employee_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK_additional_booking">
+          <End Role="booking" Type="Self.booking" Multiplicity="0..1" />
+          <End Role="additional" Type="Self.additional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="booking">
+              <PropertyRef Name="Booking_ID" />
+            </Principal>
+            <Dependent Role="additional">
+              <PropertyRef Name="Booking_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_additional_extra">
+          <End Role="extra" Type="Self.extra" Multiplicity="0..1" />
+          <End Role="additional" Type="Self.additional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extra">
+              <PropertyRef Name="Extra_ID" />
+            </Principal>
+            <Dependent Role="additional">
+              <PropertyRef Name="Extra_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_additional_service">
+          <End Role="service" Type="Self.service" Multiplicity="0..1" />
+          <End Role="additional" Type="Self.additional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Service_ID" />
+            </Principal>
+            <Dependent Role="additional">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_room">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="Room_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Room_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reservation_booking">
+          <End Role="booking" Type="Self.booking" Multiplicity="0..1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="booking">
+              <PropertyRef Name="Booking_ID" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="Booking_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reservation_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_room_category">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="room" Type="Self.room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="room">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_employee">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ehotelModelStoreContainer">
+          <EntitySet Name="additional" EntityType="Self.additional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="extra" EntityType="Self.extra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservation" EntityType="Self.reservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="room" EntityType="Self.room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_additional_booking" Association="Self.FK_additional_booking">
+            <End Role="booking" EntitySet="booking" />
+            <End Role="additional" EntitySet="additional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_additional_extra" Association="Self.FK_additional_extra">
+            <End Role="extra" EntitySet="extra" />
+            <End Role="additional" EntitySet="additional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_additional_service" Association="Self.FK_additional_service">
+            <End Role="service" EntitySet="service" />
+            <End Role="additional" EntitySet="additional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_booking_customer" Association="Self.FK_booking_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_booking_room" Association="Self.FK_booking_room">
+            <End Role="room" EntitySet="room" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reservation_booking" Association="Self.FK_reservation_booking">
+            <End Role="booking" EntitySet="booking" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reservation_customer" Association="Self.FK_reservation_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_room_category" Association="Self.FK_room_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="room" EntitySet="room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_employee" Association="Self.FK_service_employee">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ehotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="hotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="additional" EntityType="ehotelModel.additional" />
+          <EntitySet Name="booking" EntityType="ehotelModel.booking" />
+          <EntitySet Name="category" EntityType="ehotelModel.category" />
+          <EntitySet Name="customer" EntityType="ehotelModel.customer" />
+          <EntitySet Name="employee" EntityType="ehotelModel.employee" />
+          <EntitySet Name="extra" EntityType="ehotelModel.extra" />
+          <EntitySet Name="reservation" EntityType="ehotelModel.reservation" />
+          <EntitySet Name="room" EntityType="ehotelModel.room" />
+          <EntitySet Name="service" EntityType="ehotelModel.service" />
+          <AssociationSet Name="FK_additional_booking" Association="ehotelModel.FK_additional_booking">
+            <End Role="booking" EntitySet="booking" />
+            <End Role="additional" EntitySet="additional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_additional_extra" Association="ehotelModel.FK_additional_extra">
+            <End Role="extra" EntitySet="extra" />
+            <End Role="additional" EntitySet="additional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_additional_service" Association="ehotelModel.FK_additional_service">
+            <End Role="service" EntitySet="service" />
+            <End Role="additional" EntitySet="additional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_booking_customer" Association="ehotelModel.FK_booking_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_booking_room" Association="ehotelModel.FK_booking_room">
+            <End Role="room" EntitySet="room" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_room_category" Association="ehotelModel.FK_room_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="room" EntitySet="room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reservation_customer" Association="ehotelModel.FK_reservation_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_employee" Association="ehotelModel.FK_service_employee">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reservation_booking" Association="ehotelModel.FK_reservation_booking">
+            <End Role="booking" EntitySet="booking" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <EntitySet Name="admin" EntityType="ehotelModel.admin" />
+        </EntityContainer>
+        <EntityType Name="additional">
+          <Key>
+            <PropertyRef Name="Additional_ID" />
+          </Key>
+          <Property Name="Additional_ID" Type="Int32" Nullable="false" />
+          <Property Name="Booking_ID" Type="Int32" />
+          <Property Name="Service_ID" Type="Int32" />
+          <Property Name="Extra_ID" Type="Int32" />
+          <Property Name="Additional_Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Additional_Info" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="booking" Relationship="ehotelModel.FK_additional_booking" FromRole="additional" ToRole="booking" />
+          <NavigationProperty Name="extra" Relationship="ehotelModel.FK_additional_extra" FromRole="additional" ToRole="extra" />
+          <NavigationProperty Name="service" Relationship="ehotelModel.FK_additional_service" FromRole="additional" ToRole="service" />
+        </EntityType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+          </Key>
+          <Property Name="Booking_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Room_ID" Type="Int32" />
+          <Property Name="Booking_adults" Type="Int32" />
+          <Property Name="Booking_kids" Type="Int32" />
+          <Property Name="Booking_CheckIN" Type="DateTime" Precision="3" />
+          <Property Name="Booking_CheckOUT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="additional" Relationship="ehotelModel.FK_additional_booking" FromRole="booking" ToRole="additional" />
+          <NavigationProperty Name="customer" Relationship="ehotelModel.FK_booking_customer" FromRole="booking" ToRole="customer" />
+          <NavigationProperty Name="room" Relationship="ehotelModel.FK_booking_room" FromRole="booking" ToRole="room" />
+          <NavigationProperty Name="reservation" Relationship="ehotelModel.FK_reservation_booking" FromRole="booking" ToRole="reservation" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="Category_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="room" Relationship="ehotelModel.FK_room_category" FromRole="category" ToRole="room" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_CreditCard_Nr" Type="Int32" />
+          <NavigationProperty Name="booking" Relationship="ehotelModel.FK_booking_customer" FromRole="customer" ToRole="booking" />
+          <NavigationProperty Name="reservation" Relationship="ehotelModel.FK_reservation_customer" FromRole="customer" ToRole="reservation" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="service" Relationship="ehotelModel.FK_service_employee" FromRole="employee" ToRole="service" />
+        </EntityType>
+        <EntityType Name="extra">
+          <Key>
+            <PropertyRef Name="Extra_ID" />
+          </Key>
+          <Property Name="Extra_ID" Type="Int32" Nullable="false" />
+          <Property Name="Extra_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra_Price" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="additional" Relationship="ehotelModel.FK_additional_extra" FromRole="extra" ToRole="additional" />
+        </EntityType>
+        <EntityType Name="reservation">
+          <Key>
+            <PropertyRef Name="reservation_ID" />
+          </Key>
+          <Property Name="reservation_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Booking_ID" Type="Int32" />
+          <NavigationProperty Name="customer" Relationship="ehotelModel.FK_reservation_customer" FromRole="reservation" ToRole="customer" />
+          <NavigationProperty Name="booking" Relationship="ehotelModel.FK_reservation_booking" FromRole="reservation" ToRole="booking" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="Room_ID" />
+          </Key>
+          <Property Name="Room_ID" Type="Int32" Nullable="false" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="Room_Price" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="booking" Relationship="ehotelModel.FK_booking_room" FromRole="room" ToRole="booking" />
+          <NavigationProperty Name="category" Relationship="ehotelModel.FK_room_category" FromRole="room" ToRole="category" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="Service_ID" />
+          </Key>
+          <Property Name="Service_ID" Type="Int32" Nullable="false" />
+          <Property Name="Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Employee_ID" Type="Int32" />
+          <NavigationProperty Name="additional" Relationship="ehotelModel.FK_additional_service" FromRole="service" ToRole="additional" />
+          <NavigationProperty Name="employee" Relationship="ehotelModel.FK_service_employee" FromRole="service" ToRole="employee" />
+        </EntityType>
+        <Association Name="FK_additional_booking">
+          <End Type="ehotelModel.booking" Role="booking" Multiplicity="0..1" />
+          <End Type="ehotelModel.additional" Role="additional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="booking">
+              <PropertyRef Name="Booking_ID" />
+            </Principal>
+            <Dependent Role="additional">
+              <PropertyRef Name="Booking_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_additional_extra">
+          <End Type="ehotelModel.extra" Role="extra" Multiplicity="0..1" />
+          <End Type="ehotelModel.additional" Role="additional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extra">
+              <PropertyRef Name="Extra_ID" />
+            </Principal>
+            <Dependent Role="additional">
+              <PropertyRef Name="Extra_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_additional_service">
+          <End Type="ehotelModel.service" Role="service" Multiplicity="0..1" />
+          <End Type="ehotelModel.additional" Role="additional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Service_ID" />
+            </Principal>
+            <Dependent Role="additional">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_customer">
+          <End Type="ehotelModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="ehotelModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_room">
+          <End Type="ehotelModel.room" Role="room" Multiplicity="0..1" />
+          <End Type="ehotelModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="Room_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Room_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_room_category">
+          <End Type="ehotelModel.category" Role="category" Multiplicity="0..1" />
+          <End Type="ehotelModel.room" Role="room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="room">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reservation_customer">
+          <End Type="ehotelModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="ehotelModel.reservation" Role="reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_employee">
+          <End Type="ehotelModel.employee" Role="employee" Multiplicity="0..1" />
+          <End Type="ehotelModel.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reservation_booking">
+          <End Type="ehotelModel.booking" Role="booking" Multiplicity="0..1" />
+          <End Type="ehotelModel.reservation" Role="reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="booking">
+              <PropertyRef Name="Booking_ID" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="Booking_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ehotelModelStoreContainer" CdmEntityContainer="hotelEntities">
+          <EntitySetMapping Name="additional">
+            <EntityTypeMapping TypeName="ehotelModel.additional">
+              <MappingFragment StoreEntitySet="additional">
+                <ScalarProperty Name="Additional_Info" ColumnName="Additional_Info" />
+                <ScalarProperty Name="Additional_Price" ColumnName="Additional_Price" />
+                <ScalarProperty Name="Extra_ID" ColumnName="Extra_ID" />
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+                <ScalarProperty Name="Additional_ID" ColumnName="Additional_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="booking">
+            <EntityTypeMapping TypeName="ehotelModel.booking">
+              <MappingFragment StoreEntitySet="booking">
+                <ScalarProperty Name="Booking_CheckOUT" ColumnName="Booking_CheckOUT" />
+                <ScalarProperty Name="Booking_CheckIN" ColumnName="Booking_CheckIN" />
+                <ScalarProperty Name="Booking_kids" ColumnName="Booking_kids" />
+                <ScalarProperty Name="Booking_adults" ColumnName="Booking_adults" />
+                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="category">
+            <EntityTypeMapping TypeName="ehotelModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer">
+            <EntityTypeMapping TypeName="ehotelModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="Customer_CreditCard_Nr" ColumnName="Customer_CreditCard_Nr" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_Firstname" ColumnName="Customer_Firstname" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee">
+            <EntityTypeMapping TypeName="ehotelModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="Employee_Firstname" ColumnName="Employee_Firstname" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="extra">
+            <EntityTypeMapping TypeName="ehotelModel.extra">
+              <MappingFragment StoreEntitySet="extra">
+                <ScalarProperty Name="Extra_Price" ColumnName="Extra_Price" />
+                <ScalarProperty Name="Extra_Name" ColumnName="Extra_Name" />
+                <ScalarProperty Name="Extra_ID" ColumnName="Extra_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservation">
+            <EntityTypeMapping TypeName="ehotelModel.reservation">
+              <MappingFragment StoreEntitySet="reservation">
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="reservation_ID" ColumnName="reservation_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="room">
+            <EntityTypeMapping TypeName="ehotelModel.room">
+              <MappingFragment StoreEntitySet="room">
+                <ScalarProperty Name="Room_Price" ColumnName="Room_Price" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service">
+            <EntityTypeMapping TypeName="ehotelModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Service_Price" ColumnName="Service_Price" />
+                <ScalarProperty Name="Service_Name" ColumnName="Service_Name" />
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="ehotelModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
