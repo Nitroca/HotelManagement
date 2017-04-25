@@ -24,5 +24,11 @@ namespace Hotel_Project
         {
             InitializeComponent();
         }
+
+        private void Main_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new MainPage());
+        }
     }
 }

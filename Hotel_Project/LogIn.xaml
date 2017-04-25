@@ -20,7 +20,7 @@
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
                    Text="Hotel Management App" FontSize="32" Margin="0,80,0,0"
                    HorizontalAlignment="Center"/>
-
+        
         <TextBox x:Name="usernameBox" Grid.Row="1" Margin="163,26,161,104" HorizontalAlignment="Center" Width="203" Grid.ColumnSpan="2"/>
         <PasswordBox x:Name="passwordBox" Grid.Row="1" Margin="163,60,160,70" Grid.ColumnSpan="2" />
        
