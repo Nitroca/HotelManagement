@@ -34,5 +34,40 @@ namespace Hotel_Project
         {
 
         }
+
+        private void Booking_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Rooms_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Employees_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Service_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Extra_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SecurityCam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
