@@ -10,7 +10,7 @@
     <DockPanel>
 
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Reservation"/>
+            <MenuItem Header="Reservation" />
             <MenuItem Header="Customer"/>
             <MenuItem Header="Booking"/>
             <MenuItem Header="Rooms"/>
