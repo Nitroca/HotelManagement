@@ -16,23 +16,19 @@ using System.Windows.Shapes;
 namespace Hotel_Project
 {
     /// <summary>
-    /// Interaction logic for Main.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Main : UserControl
+    public partial class MainWindow : Window
     {
-        public Main()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Reservation_Click(object sender, RoutedEventArgs e)
+        private void Main_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Customer_Click(object sender, RoutedEventArgs e)
-        {
-
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new MainPage());
         }
     }
 }
