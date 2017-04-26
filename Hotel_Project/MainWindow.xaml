@@ -11,12 +11,12 @@
 
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Reservation" Click="Reservation_Click"/>
-            <MenuItem Header="Customer"/>
-            <MenuItem Header="Booking"/>
-            <MenuItem Header="Rooms"/>
-            <MenuItem Header="Employees"/>
-            <MenuItem Header="Service"/>
-            <MenuItem Header="Extra"/>
+            <MenuItem Header="Customer" Click="Customer_Click"/>
+            <MenuItem Header="Booking" Click="Booking_Click"/>
+            <MenuItem Header="Rooms" Click="Room_Click"/>
+            <MenuItem Header="Employees" Click="Employee_Click"/>
+            <MenuItem Header="Service" Click="Service_Click"/>
+            <MenuItem Header="Extra" Click="Extra_Click"/>
             <MenuItem Header="Security Camera" Click="Security_Click"/>
         </Menu>
 

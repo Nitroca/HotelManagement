@@ -25,10 +25,46 @@ namespace Hotel_Project
             InitializeComponent();
         }
 
-        private void Main_Click(object sender, RoutedEventArgs e)
+        private void Reservation_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-           //ontentct1.Children.Add(new MainPage());
+            contentct1.Children.Add(new Reservation());
+        }
+
+        private void Customer_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new Customer());
+        }
+
+        private void Booking_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new Booking());
+        }
+
+        private void Room_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new Room());
+        }
+
+        private void Employee_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new Employee());
+        }
+
+        private void Service_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new Service());
+        }
+
+        private void Extra_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new Extra());
         }
 
         private void Security_Click(object sender, RoutedEventArgs e)
@@ -37,9 +73,5 @@ namespace Hotel_Project
             contentct1.Children.Add(new SecurityCam());
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

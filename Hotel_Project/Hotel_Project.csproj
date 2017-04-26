@@ -84,6 +84,9 @@
     <Compile Include="additional.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Additional.xaml.cs">
+      <DependentUpon>Additional.xaml</DependentUpon>
+    </Compile>
     <Compile Include="admin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -93,17 +96,32 @@
     <Compile Include="booking.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Booking.xaml.cs">
+      <DependentUpon>Booking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Category.xaml.cs">
+      <DependentUpon>Category.xaml</DependentUpon>
     </Compile>
     <Compile Include="customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Customer.xaml.cs">
+      <DependentUpon>Customer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="extra.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Extra.xaml.cs">
+      <DependentUpon>Extra.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
@@ -113,18 +131,48 @@
     <Compile Include="reservation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Reservation.xaml.cs">
+    <Compile Include="UserControls\Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="room.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SecurityCam.xaml.cs">
+    <Compile Include="UserControls\Room.xaml.cs">
+      <DependentUpon>Room.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityCam.xaml.cs">
       <DependentUpon>SecurityCam.xaml</DependentUpon>
     </Compile>
     <Compile Include="service.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Service.xaml.cs">
+      <DependentUpon>Service.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserControls\Additional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Booking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Category.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Extra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -137,11 +185,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Reservation.xaml">
+    <Page Include="UserControls\Reservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SecurityCam.xaml">
+    <Page Include="UserControls\Room.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SecurityCam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Service.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
