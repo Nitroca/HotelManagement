@@ -1,13 +1,22 @@
-﻿<UserControl x:Class="Hotel_Project.SecurityCam"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hotel_Project"
-        mc:Ignorable="d"
-        d:DesignHeight="350"
-        d:DesignWidth="535">
+﻿<UserControl
+    x:Class="Hotel_Project.SecurityCam"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Hotel_Project"
+    mc:Ignorable="d"
+    Height="300"
+    Width="350
+    ">
     <Grid>
-        
+        <MediaElement
+            x:Name="mediaElement"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,10,0,0"
+            Source="five_nights_at_freddy_s_3___cam_2_gif_by_rodri_14-d9b562q.gif"
+            Height="290" />
+
     </Grid>
 </UserControl>

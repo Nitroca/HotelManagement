@@ -17,7 +17,7 @@
             <MenuItem Header="Employees"/>
             <MenuItem Header="Service"/>
             <MenuItem Header="Extra"/>
-            <MenuItem Header="Security Camera"/>
+            <MenuItem Header="Security Camera" Click="Security_Click"/>
         </Menu>
 
         <Grid x:Name="contentct1">
