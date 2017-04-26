@@ -25,10 +25,21 @@ namespace Hotel_Project
             InitializeComponent();
         }
 
-        private void Reservation_Click(object sender, RoutedEventArgs e)
+        private void Main_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-            contentct1.Children.Add(new Reservation());
+           //ontentct1.Children.Add(new MainPage());
+        }
+
+        private void Security_Click(object sender, RoutedEventArgs e)
+        {
+            contentct1.Children.Clear();
+            contentct1.Children.Add(new SecurityCam());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
