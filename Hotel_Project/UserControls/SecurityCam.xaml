@@ -5,18 +5,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Hotel_Project"
-   
-    mc:Ignorable="d"
-    d:DesignHeight="350"
-    d:DesignWidth="535">
+    Height="350"
+    Width="535">
     <Grid>
         <MediaElement
             x:Name="mediaElement"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Margin="10,10,0,0"
+            Margin="10,26,0,0"
             Source="five_nights_at_freddy_s_3___cam_2_gif_by_rodri_14-d9b562q.gif"
-            Height="290" />
+            Height="125"
+            Width="159" />
+        <MediaElement
+            x:Name="mediaElement2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="188,26,0,0"
+            Source="five_nights_at_freddy_s_3___cam_2_gif_by_rodri_14-d9b562q.gif"
+            Height="167"
+            Width="213" />
 
     </Grid>
 </UserControl>
