@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace Hotel_Project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Booking.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Booking : UserControl
     {
-        public MainWindow()
+        public Booking()
         {
             InitializeComponent();
-        }
-
-        private void Reservation_Click(object sender, RoutedEventArgs e)
-        {
-            contentct1.Children.Clear();
-            contentct1.Children.Add(new Reservation());
         }
     }
 }
