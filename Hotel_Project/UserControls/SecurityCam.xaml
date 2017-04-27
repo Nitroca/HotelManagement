@@ -5,25 +5,46 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Hotel_Project"
-    Height="350"
-    Width="535">
-    <Grid>
-        <MediaElement
-            x:Name="mediaElement"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Margin="10,26,0,0"
-            Source="five_nights_at_freddy_s_3___cam_2_gif_by_rodri_14-d9b562q.gif"
-            Height="125"
-            Width="159" />
-        <MediaElement
-            x:Name="mediaElement2"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Margin="188,26,0,0"
-            Source="five_nights_at_freddy_s_3___cam_2_gif_by_rodri_14-d9b562q.gif"
-            Height="167"
-            Width="213" />
+    mc:Ignorable="d"
+    Background="Lavender"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    >
+
+    <Grid VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="*" />
+            <ColumnDefinition
+                Width="*" />
+            <ColumnDefinition
+                Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image
+            x:Name="Cam1"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif" 
+            Grid.Column="0"
+            Grid.Row="0"
+           />
+        <Image
+            x:Name="Cam2"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            Grid.Column="1"
+            Grid.Row="0"
+         
+            />
+        <Image
+            x:Name="Cam3"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            Grid.Column="2"
+            Grid.Row="0"
+             />
 
     </Grid>
 </UserControl>

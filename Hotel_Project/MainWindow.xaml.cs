@@ -70,7 +70,8 @@ namespace Hotel_Project
         private void Security_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-            contentct1.Children.Add(new SecurityCam());
+            var nc = new SecurityCam();
+            contentct1.Children.Add(nc);
         }
 
     }

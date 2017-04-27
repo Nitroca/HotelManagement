@@ -21,7 +21,15 @@ namespace Hotel_Project
     {
         public SecurityCam()
         {
-            InitializeComponent();
+            try
+
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
     }
 }
