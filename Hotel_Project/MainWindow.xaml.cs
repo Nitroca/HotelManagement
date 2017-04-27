@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Hotel_Project
 {
     /// <summary>
@@ -46,31 +47,36 @@ namespace Hotel_Project
         private void Room_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-            contentct1.Children.Add(new Room());
+            var nc = new Room();
+            contentct1.Children.Add(nc);
         }
 
         private void Employee_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
+            var nc = new Employee();
             contentct1.Children.Add(new Employee());
         }
 
         private void Service_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-            contentct1.Children.Add(new Service());
+            var nc = new Service();
+            contentct1.Children.Add(nc);
         }
 
         private void Extra_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-            contentct1.Children.Add(new Extra());
+            var nx = new Extra();
+            contentct1.Children.Add(nx);
         }
 
         private void Security_Click(object sender, RoutedEventArgs e)
         {
             contentct1.Children.Clear();
-            contentct1.Children.Add(new SecurityCam());
+            var nc = new SecurityCam();
+            contentct1.Children.Add(nc);
         }
 
     }
