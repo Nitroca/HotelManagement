@@ -22,8 +22,6 @@
         <AssociationConnector Association="ehotelModel.FK_room_category" />
         <AssociationConnector Association="ehotelModel.FK_reservation_customer" />
         <AssociationConnector Association="ehotelModel.FK_service_employee" />
-        <AssociationConnector Association="ehotelModel.FK_reservation_booking" />
-        <EntityTypeShape EntityType="ehotelModel.adminUsers" Width="1.5" PointX="7.625" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
