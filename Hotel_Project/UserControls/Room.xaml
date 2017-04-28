@@ -76,7 +76,7 @@
                 Text="{Binding Path=L_Gebdat, StringFormat=dd.MM.yyyy}" />
             <!--<Binding Path="L_Gebdat" StringFormat="dd.MM.yyyy"/>-->
 
-            <Button
+            <!--<Button
                 Name="btnspeichern"
                 Height="23"
                 Margin="4"
@@ -94,7 +94,7 @@
                 Height="23"
                 Margin="4"
                 Click="remove_Click">Lehrer löschen
-            </Button>
+            </Button>-->
 
             <TextBlock
                 Name="submitfehler"

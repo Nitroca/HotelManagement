@@ -20,9 +20,16 @@ namespace Hotel_Project
     /// </summary>
     public partial class Reservation : UserControl
     {
+        hotelEntities hotel = new hotelEntities();
+
         public Reservation()
         {
             InitializeComponent();
+        }
+
+        private void Reservation_Loaded(object sender, RoutedEventArgs e)
+        {
+            lireservation.ItemsSource = hotel.reservation.ToList();
         }
     }
 }

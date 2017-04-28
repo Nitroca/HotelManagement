@@ -7,15 +7,14 @@
     xmlns:local="clr-namespace:Hotel_Project"
     mc:Ignorable="d"
     Background="Lavender"
-    xmlns:gif="http://wpfanimatedgif.codeplex.com"
-    >
+    xmlns:gif="http://wpfanimatedgif.codeplex.com">
 
     <Grid VerticalAlignment="Stretch"
         HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition
                 Height="Auto" />
-            
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
@@ -26,7 +25,7 @@
                 Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Image
+        <!--<Image
             x:Name="Cam1"
             gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif" 
             Grid.Column="0"
@@ -44,7 +43,8 @@
             gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
             Grid.Column="2"
             Grid.Row="0"
-             />
+             />-->
 
     </Grid>
+
 </UserControl>
