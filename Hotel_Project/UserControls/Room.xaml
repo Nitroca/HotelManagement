@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hotel_Project"
              mc:Ignorable="d" 
-           >
+             d:DesignHeight="350" d:DesignWidth="535">
     <Grid>
         
         <Grid.RowDefinitions>
@@ -76,25 +76,25 @@
                 Text="{Binding Path=L_Gebdat, StringFormat=dd.MM.yyyy}" />
             <!--<Binding Path="L_Gebdat" StringFormat="dd.MM.yyyy"/>-->
 
-            <Button
+            <!--<Button
                 Name="btnspeichern"
                 Height="23"
                 Margin="4"
-                >Änderungen in DB Speichern</Button>
+                Click="btnspeichern_Click">Änderungen in DB Speichern</Button>
 
             <Button
                 Name="add"
                 Height="23"
                 Margin="4"
-               >Lehrer hinzufügen
+                Click="add_Click">Lehrer hinzufügen
             </Button>
 
             <Button
                 Name="remove"
                 Height="23"
                 Margin="4"
-                >Lehrer löschen
-            </Button>
+                Click="remove_Click">Lehrer löschen
+            </Button>-->
 
             <TextBlock
                 Name="submitfehler"
