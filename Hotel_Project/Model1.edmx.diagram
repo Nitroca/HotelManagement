@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="ehotelModel.booking" Width="1.5" PointX="5" PointY="3.625" />
         <EntityTypeShape EntityType="ehotelModel.category" Width="1.5" PointX="0.75" PointY="7.375" />
         <EntityTypeShape EntityType="ehotelModel.customer" Width="1.5" PointX="2.625" PointY="3.875" />
-        <EntityTypeShape EntityType="ehotelModel.employee" Width="1.5" PointX="6.125" PointY="7.25" />
+        <EntityTypeShape EntityType="ehotelModel.e" Width="1.5" PointX="6.125" PointY="7.25" />
         <EntityTypeShape EntityType="ehotelModel.extra" Width="1.5" PointX="3.375" PointY="0.875" />
         <EntityTypeShape EntityType="ehotelModel.reservation" Width="1.5" PointX="3" PointY="7.875" />
         <EntityTypeShape EntityType="ehotelModel.room" Width="1.5" PointX="0.75" PointY="1.125" />

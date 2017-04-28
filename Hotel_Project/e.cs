@@ -12,10 +12,10 @@ namespace Hotel_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class employee
+    public partial class e
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public employee()
+        public e()
         {
             this.service = new HashSet<service>();
         }

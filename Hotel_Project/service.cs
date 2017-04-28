@@ -27,6 +27,6 @@ namespace Hotel_Project
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<additional> additional { get; set; }
-        public virtual employee employee { get; set; }
+        public virtual e employee { get; set; }
     }
 }

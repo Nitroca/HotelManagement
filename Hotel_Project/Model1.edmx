@@ -266,7 +266,7 @@
           <EntitySet Name="booking" EntityType="ehotelModel.booking" />
           <EntitySet Name="category" EntityType="ehotelModel.category" />
           <EntitySet Name="customer" EntityType="ehotelModel.customer" />
-          <EntitySet Name="employee" EntityType="ehotelModel.employee" />
+          <EntitySet Name="employee" EntityType="ehotelModel.e" />
           <EntitySet Name="extra" EntityType="ehotelModel.extra" />
           <EntitySet Name="reservation" EntityType="ehotelModel.reservation" />
           <EntitySet Name="room" EntityType="ehotelModel.room" />
@@ -360,7 +360,7 @@
           <NavigationProperty Name="booking" Relationship="ehotelModel.FK_booking_customer" FromRole="customer" ToRole="booking" />
           <NavigationProperty Name="reservation" Relationship="ehotelModel.FK_reservation_customer" FromRole="customer" ToRole="reservation" />
         </EntityType>
-        <EntityType Name="employee">
+        <EntityType Name="e">
           <Key>
             <PropertyRef Name="Employee_ID" />
           </Key>
@@ -494,7 +494,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_service_employee">
-          <End Type="ehotelModel.employee" Role="employee" Multiplicity="0..1" />
+          <End Type="ehotelModel.e" Role="employee" Multiplicity="0..1" />
           <End Type="ehotelModel.service" Role="service" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="employee">
@@ -582,7 +582,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="employee">
-            <EntityTypeMapping TypeName="ehotelModel.employee">
+            <EntityTypeMapping TypeName="ehotelModel.e">
               <MappingFragment StoreEntitySet="employee">
                 <ScalarProperty Name="Employee_Firstname" ColumnName="Employee_Firstname" />
                 <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />

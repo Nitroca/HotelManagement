@@ -20,9 +20,18 @@ namespace Hotel_Project
     /// </summary>
     public partial class Extra : UserControl
     {
+
+        hotelEntities db = new hotelEntities();
+
         public Extra()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var erg = db.extra;
+            
         }
     }
 }
