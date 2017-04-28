@@ -21,7 +21,7 @@
                 Width="36*" />
         </Grid.ColumnDefinitions>
         <TextBlock
-            Text="Employee"
+            Text="Extra"
             Grid.ColumnSpan="2"
             FontSize="16"
             TextAlignment="Center"
