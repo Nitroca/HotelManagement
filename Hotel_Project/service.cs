@@ -23,7 +23,7 @@ namespace Hotel_Project
         public int Service_ID { get; set; }
         public string Service_Name { get; set; }
         public Nullable<decimal> Service_Price { get; set; }
-        public Nullable<int> Employee_ID { get; set; }
+        public string Employee_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<additional> additional { get; set; }

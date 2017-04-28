@@ -31,6 +31,12 @@ namespace Hotel_Project
         {
                
             lireservation.ItemsSource = hotel.reservation.ToList();
+            
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

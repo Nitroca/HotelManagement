@@ -15,28 +15,39 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
+            
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="0"  Text="Reservation"  HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="1" Text="Customer"  HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="2" Text="Details"  HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="0"  Text="Reservation_ID"  HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="1" Text="Customers"  HorizontalAlignment="Center"/>
 
-        <ListBox x:Name="lireservation" Grid.Column="0" Margin="10,22,10,13" Grid.Row="1"
+        <ListBox x:Name="lireservation" Grid.Column="0" Margin="10,10,10,13" Grid.Row="1"
                  DisplayMemberPath="reservation_ID"/>
 
-        <ListBox x:Name="licustomer"  Grid.Column="1" Margin="10,20,10,13" Grid.Row="1"
-                 ItemsSource="{Binding ElementName=lireservation, Path=SelectedItem.customer}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock>
-                        <Run Text="{Binding Path=Customer_Name}"/>
-                        <Run Text=""/>
-                        <Run Text="{Binding Path=Customer_Firstname}"/>
-                    </TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" 
+                    DataContext="{Binding ElementName=lireservation, Path=SelectedItem.customer}">
+
+            <TextBlock Text="Name: " />
+            <TextBlock Text="{Binding Path=Customer_Name}" />
+            <TextBlock Text="" />
+            <TextBlock Text="Firstname: " />
+            <TextBlock Text="{Binding Path=Customer_Firstname}" />
+            <TextBlock Text="" />
+            <TextBlock Text="Credit Card Number: " />
+            <TextBlock Text="{Binding Path=Customer_CreditCard_Nr}" />
+            <TextBlock Text="" />
+            <TextBlock Text="" />
+
+            <Button x:Name="Edit" Margin="0 8 0 0"
+                    Content="Edit"
+                    Click="Edit_Click"></Button>
+
+            <TextBlock x:Name="fehler" Foreground="Red" TextWrapping="Wrap"/>
+
+        </StackPanel>
+        
+
 
     </Grid>
 </UserControl>

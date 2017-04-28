@@ -18,7 +18,7 @@ namespace Hotel_Project
         public Nullable<int> Customer_ID { get; set; }
         public Nullable<int> Booking_ID { get; set; }
     
-        public virtual customer customer { get; set; }
         public virtual booking booking { get; set; }
+        public virtual customer customer { get; set; }
     }
 }

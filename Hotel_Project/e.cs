@@ -20,7 +20,7 @@ namespace Hotel_Project
             this.service = new HashSet<service>();
         }
     
-        public int Employee_ID { get; set; }
+        public string Employee_ID { get; set; }
         public string Employee_Name { get; set; }
         public string Employee_Firstname { get; set; }
     
