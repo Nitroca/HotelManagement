@@ -12,13 +12,9 @@ namespace Hotel_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class reservation
+    public partial class admin
     {
-        public int reservation_ID { get; set; }
-        public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Booking_ID { get; set; }
-    
-        public virtual customer customer { get; set; }
-        public virtual booking booking { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
