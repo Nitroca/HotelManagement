@@ -12,12 +12,9 @@ namespace Hotel_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class adminUsers
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string Admin_name { get; set; }
+        public string Admin_Password { get; set; }
     }
 }
