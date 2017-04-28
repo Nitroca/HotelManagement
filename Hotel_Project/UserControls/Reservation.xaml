@@ -12,5 +12,9 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Reservation" HorizontalAlignment="Center" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Customer" HorizontalAlignment="Center" />
+
     </Grid>
 </UserControl>
