@@ -31,9 +31,7 @@ namespace Hotel_Project
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var erg = hotel.employee;
-            erg.Load();
-            employee.ItemsSource = erg.Local.OrderBy(l => l.Employee_Name);
+            
             }
         }
     }
