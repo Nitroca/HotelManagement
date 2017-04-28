@@ -29,7 +29,7 @@ namespace Hotel_Project
         public virtual DbSet<booking> booking { get; set; }
         public virtual DbSet<category> category { get; set; }
         public virtual DbSet<customer> customer { get; set; }
-        public virtual DbSet<employee> employee { get; set; }
+        public virtual DbSet<e> employee { get; set; }
         public virtual DbSet<extra> extra { get; set; }
         public virtual DbSet<reservation> reservation { get; set; }
         public virtual DbSet<room> room { get; set; }
