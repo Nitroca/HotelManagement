@@ -88,14 +88,14 @@
     <Compile Include="additional.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Reservation_Edit.xaml.cs">
+      <DependentUpon>Reservation_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Additional.xaml.cs">
       <DependentUpon>Additional.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="admin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="adminUsers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="booking.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -153,6 +153,10 @@
     <Compile Include="UserControls\Service.xaml.cs">
       <DependentUpon>Service.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControls\Reservation_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Additional.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

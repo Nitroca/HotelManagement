@@ -34,6 +34,6 @@ namespace Hotel_Project
         public virtual DbSet<reservation> reservation { get; set; }
         public virtual DbSet<room> room { get; set; }
         public virtual DbSet<service> service { get; set; }
-        public virtual DbSet<adminUsers> adminUsers { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
