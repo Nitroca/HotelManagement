@@ -28,14 +28,14 @@
             FontWeight="Bold" />
 
         <ListBox
-            x:Name="employee"
+            x:Name="lehrer"
             Grid.Row="1"
             Margin="5 5 5 5"
             Height="300">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
-                        Text="{Binding Path=Employee_Name}" />
+                        Text="{Binding Path=L_Name}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
