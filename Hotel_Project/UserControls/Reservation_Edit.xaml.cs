@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Hotel_Project
 {
     /// <summary>
-    /// Interaction logic for Extra.xaml
+    /// Interaction logic for Reservation_Edit.xaml
     /// </summary>
-    public partial class Extra : UserControl
+    public partial class Reservation_Edit : Window
     {
-
-        hotelEntities db = new hotelEntities();
-
-        public Extra()
+        public Reservation_Edit()
         {
             InitializeComponent();
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            var erg = db.extra;
-            
         }
     }
 }

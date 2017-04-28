@@ -19,7 +19,6 @@ namespace Hotel_Project
         public Nullable<int> Service_ID { get; set; }
         public Nullable<int> Extra_ID { get; set; }
         public Nullable<decimal> Additional_Price { get; set; }
-        public string Additional_Info { get; set; }
     
         public virtual booking booking { get; set; }
         public virtual extra extra { get; set; }
