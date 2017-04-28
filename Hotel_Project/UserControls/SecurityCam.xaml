@@ -27,7 +27,7 @@
                 Width="*" />
         </Grid.ColumnDefinitions>
 
-       <Image
+        <!--<Image
             x:Name="Cam1"
             gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif" 
             Grid.Column="0"
