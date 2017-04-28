@@ -27,7 +27,7 @@
                 Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Image
+       <Image
             x:Name="Cam1"
             gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif" 
             Grid.Column="0"
@@ -44,23 +44,7 @@
             x:Name="Cam3"
             gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
             Grid.Column="2"
-            Grid.Row="0"
-             />
-        <Image
-            x:Name="Cam4"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
-            Grid.Column="0"
-            Grid.Row="1" />
-        <Image
-            x:Name="Cam5"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
-            Grid.Column="1"
-            Grid.Row="1" />
-        <Image
-            x:Name="Cam6"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
-            Grid.Column="2"
-            Grid.Row="1" />
+            Grid.Row="0" />
 
     </Grid>
 

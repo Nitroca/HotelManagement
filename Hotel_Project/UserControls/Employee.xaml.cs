@@ -20,8 +20,7 @@ namespace Hotel_Project
     /// </summary>
     public partial class Employee : UserControl
     {
-
-        
+        hotelEntities hotel = new hotelEntities();
 
         public Employee()
         {
