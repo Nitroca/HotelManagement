@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel_Project"
         mc:Ignorable="d" Background="Lavender"
-        Title="Hotel Management" Height="350" Width="535">
+        Title="Hotel Management" Height="450" Width="535">
 
     <DockPanel>
 
@@ -25,8 +25,8 @@
             <TextBlock Text="Hotel Management App" FontSize="32" Margin="0,80,0,0"
                    HorizontalAlignment="Center"/>
 
-            <TextBlock Text="Choose one of the menu at the top" FontSize="19" Margin="116,139,116,52"
-                   HorizontalAlignment="Center"/>
+            <TextBlock Text="Choose one of the menu at the top" FontSize="17" Margin="142,138,93,53"
+                   HorizontalAlignment="Center" Width="292"/>
 
 
         </Grid>
