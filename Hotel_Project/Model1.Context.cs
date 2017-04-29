@@ -25,6 +25,7 @@ namespace Hotel_Project
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<additional> additional { get; set; }
         public virtual DbSet<booking> booking { get; set; }
         public virtual DbSet<category> category { get; set; }
@@ -34,7 +35,5 @@ namespace Hotel_Project
         public virtual DbSet<reservation> reservation { get; set; }
         public virtual DbSet<room> room { get; set; }
         public virtual DbSet<service> service { get; set; }
-        public virtual DbSet<admin> admin { get; set; }
-        public virtual DbSet<adminUsers> adminUsers { get; set; }
     }
 }
