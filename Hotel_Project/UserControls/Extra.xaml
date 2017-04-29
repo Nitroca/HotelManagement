@@ -42,27 +42,27 @@
         </ListBox>
 
         <StackPanel
-            DataContext="{Binding ElementName=, Path=SelectedItem}"
+            DataContext="{Binding ElementName=extraList, Path=SelectedItem}"
             Grid.Column="1"
             Grid.Row="1"
             Margin="5 5 5 5">
 
             <TextBlock
-                Text="Lehrername" />
+                Text="Name" />
             <TextBox
-                Text="{Binding Path=L_Name}"
+                Text="{Binding Path=Extra_Name}"
                 MaxLength="15" />
 
             <TextBlock
-                Text="Lehrer Vorname" />
+                Text="Price in Euro" />
             <TextBox
-                Text="{Binding Path=L_Vorname}"
+                Text="{Binding Path=Extra_Price}"
                 MaxLength="15" />
 
             <TextBlock
-                Text="Lehrer ID" />
+                Text="Extra id number" />
             <TextBox
-                Text="{Binding Path=L_ID}"
+                Text="{Binding Path=Extra_ID}"
                 MaxLength="15" />
         
 

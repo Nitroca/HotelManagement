@@ -34,7 +34,7 @@ namespace Hotel_Project
         {
             var erg = hotel.extra;
             erg.Load();
-            
+            extraList.ItemsSource = erg.Local.OrderBy(l => l.Extra_Name);
         }
     }
 }

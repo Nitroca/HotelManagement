@@ -30,8 +30,15 @@ namespace Hotel_Project
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var erg = hotel.employee.ToList();
-
+            var erg = hotel.employee;
+            try
+            {
+                erg.Load();
+            }catch(Exception e1)
+            {
+                submitfehler.Text = e1.Message;
+            }
+            employee.ItemsSource = erg.Local.OrderBy(l => l.Employee_Name);
            
         }
     }
