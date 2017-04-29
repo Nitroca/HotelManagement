@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hotel_Project"
-             
+             Loaded="UserControl_Loaded"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="535">
     <Grid>
@@ -28,14 +28,14 @@
             FontWeight="Bold" />
 
         <ListBox
-            x:Name="lehrer"
+            x:Name="employee"
             Grid.Row="1"
             Margin="5 5 5 5"
             Height="300">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
-                        Text="{Binding Path=L_Name}" />
+                        Text="{Binding Path=Employee_Name}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

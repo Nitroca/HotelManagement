@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hotel_Project"
              mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
              d:DesignHeight="350" d:DesignWidth="535">
     <Grid>
 
@@ -28,20 +29,20 @@
             FontWeight="Bold" />
 
         <ListBox
-            x:Name="employee"
+            x:Name="extraList"
             Grid.Row="1"
             Margin="5 5 5 5"
             Height="300">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
-                        Text="{Binding Path=Employee_Name}" />
+                        Text="{Binding Path=Extra_Name}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <StackPanel
-            DataContext="{Binding ElementName=lehrer, Path=SelectedItem}"
+            DataContext="{Binding ElementName=, Path=SelectedItem}"
             Grid.Column="1"
             Grid.Row="1"
             Margin="5 5 5 5">
@@ -63,17 +64,8 @@
             <TextBox
                 Text="{Binding Path=L_ID}"
                 MaxLength="15" />
+        
 
-            <TextBlock
-                Text="Lehrer Gehalt" />
-            <TextBox
-                Text="{Binding Path=L_Gehalt}"
-                MaxLength="15" />
-
-            <TextBlock
-                Text="Geburtsdatum:" />
-            <TextBox
-                Text="{Binding Path=L_Gebdat, StringFormat=dd.MM.yyyy}" />
         </StackPanel>
     </Grid>
 </UserControl>
