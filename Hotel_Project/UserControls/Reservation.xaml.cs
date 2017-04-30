@@ -20,7 +20,7 @@ namespace Hotel_Project
     /// </summary>
     public partial class Reservation : UserControl
     {
-        hotelEntities hotel = new hotelEntities();
+        hotelEntities ht = new hotelEntities();
 
         public Reservation()
         {
@@ -29,7 +29,7 @@ namespace Hotel_Project
 
         private void Reservation_Loaded(object sender, RoutedEventArgs e)
         {
-            lireservation.ItemsSource = hotel.reservation.ToList();
+            lireservation.ItemsSource = ht.reservation.ToList();
             
         }
 
@@ -38,7 +38,7 @@ namespace Hotel_Project
         {
             try
             {
-                int i = hotel.SaveChanges();
+                int i = ht.SaveChanges();
                 fehler.Text = i + " rows affected";
             }
             catch (Exception e1)
@@ -58,7 +58,7 @@ namespace Hotel_Project
             reservation r = (reservation)lireservation.SelectedItem;
             if(r != null)
             {
-                hotel.reservation.Remove(r);
+                ht.reservation.Remove(r);
                 lireservation.Items.Refresh();
 
                 Save_Click(sender, null);
@@ -67,21 +67,5 @@ namespace Hotel_Project
             
         }
 
-        private void New_Click(object sender, RoutedEventArgs e)
-        {
-            //reservation r = (reservation)lireservation.SelectedItem;
-            //customer c = new customer();
-            //c.Customer_Name = "New";
-            //r.customer.reservation.Add(r);
-            //lireservation.Items.Refresh();
-
-            //klassen k = (klassen)liklassen.SelectedItem;
-            //schueler s = new schueler();
-            //s.S_Name = "NEU";
-            ////s.S_K_Klasse = k.K_ID;
-            //k.schueler2.Add(s);
-
-            //lischueler.Items.Refresh();
-        }
     }
 }

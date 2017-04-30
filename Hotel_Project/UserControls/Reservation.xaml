@@ -49,10 +49,9 @@
             <TextBlock Text="Credit Card Number: " />
             <TextBox Text="{Binding Path=Customer_CreditCard_Nr}" />
             <TextBlock Text="" />
+            <TextBlock Text="" />
 
-            <Button x:Name="New" Margin="0 8 0 0"
-                    Content="New"
-                    Click="New_Click"></Button>
+            
 
             <Button x:Name="Save" Margin="0 8 0 0"
                     Content="Save"
