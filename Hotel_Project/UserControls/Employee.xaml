@@ -30,8 +30,8 @@
         <ListBox
             x:Name="employee"
             Grid.Row="1"
-            Margin="5 5 5 5"
-            Height="300">
+            Margin="10 10 10 10"
+            >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
@@ -41,39 +41,30 @@
         </ListBox>
 
         <StackPanel
-            DataContext="{Binding ElementName=lehrer, Path=SelectedItem}"
+            DataContext="{Binding ElementName=employee, Path=SelectedItem}"
             Grid.Column="1"
             Grid.Row="1"
-            Margin="5 5 5 5">
+            Margin="15 15 15 15">
 
             <TextBlock
-                Text="Lehrername" />
+                Text="Lastname" />
             <TextBox
-                Text="{Binding Path=L_Name}"
+                Text="{Binding Path=Employee_Name}"
+                />
+
+            <TextBlock
+                Text="Firstname" />
+            <TextBox
+                Text="{Binding Path=Employee_Firstname}"
+                 />
+
+            <TextBlock
+                Text="Employee ID" />
+            <TextBox
+                Text="{Binding Path=Employee_ID}"
                 MaxLength="15" />
 
-            <TextBlock
-                Text="Lehrer Vorname" />
-            <TextBox
-                Text="{Binding Path=L_Vorname}"
-                MaxLength="15" />
-
-            <TextBlock
-                Text="Lehrer ID" />
-            <TextBox
-                Text="{Binding Path=L_ID}"
-                MaxLength="15" />
-
-            <TextBlock
-                Text="Lehrer Gehalt" />
-            <TextBox
-                Text="{Binding Path=L_Gehalt}"
-                MaxLength="15" />
-
-            <TextBlock
-                Text="Geburtsdatum:" />
-            <TextBox
-                Text="{Binding Path=L_Gebdat, StringFormat=dd.MM.yyyy}" />
+          
             <!--<Binding Path="L_Gebdat" StringFormat="dd.MM.yyyy"/>-->
 
             <!--<Button

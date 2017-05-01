@@ -31,7 +31,7 @@
             x:Name="ServiceList"
             Grid.Row="1"
             Margin="5 5 5 5"
-            Height="300">
+           >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
@@ -47,33 +47,31 @@
             Margin="5 5 5 5">
 
             <TextBlock
-                Text="Lehrername" />
+                Text="ID of the Service" />
             <TextBox
-                Text="{Binding Path=L_Name}"
+                Text="{Binding Path=Service_ID}"
                 MaxLength="15" />
 
             <TextBlock
-                Text="Lehrer Vorname" />
+                Text="Service name" />
             <TextBox
-                Text="{Binding Path=L_Vorname}"
+                Text="{Binding Path=Service_Name}"
+                MaxLength="15" />
+
+            <TextBlock
+                Text="Price of the Service" />
+            <TextBox
+                Text="{Binding Path=Service_Price}"
                 MaxLength="15" />
 
             <TextBlock
                 Text="Lehrer ID" />
-            <TextBox
-                Text="{Binding Path=L_ID}"
-                MaxLength="15" />
-
-            <TextBlock
-                Text="Lehrer Gehalt" />
-            <TextBox
-                Text="{Binding Path=L_Gehalt}"
-                MaxLength="15" />
-
-            <TextBlock
-                Text="Geburtsdatum:" />
-            <TextBox
-                Text="{Binding Path=L_Gebdat, StringFormat=dd.MM.yyyy}" />
+            <ComboBox
+                x:Name="cklasse"
+                SelectedValue="{Binding Service_Name}"
+                ItemsSource="{Binding ElementName=ServiceList, Path=ItemsSource}"
+                DisplayMemberPath="Employee_Name"
+                SelectedValuePath="Employee_ID" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -29,16 +29,15 @@ namespace Hotel_Project
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            //var erg = hotel.service;
+            var erg = hotel.service;
             //try
             //{
-            //    erg.Load();
+                erg.Load();
             //}
-            //catch (Exception e1)
-            //{
-            //    //submitfehler.Text = e1.Message;
+            //catch (Exception e1){
+            //  t
             //}
-            //ServiceList.ItemsSource = erg.Local.OrderBy(l => l.Service_Name);
+            ServiceList.ItemsSource = erg.Local.OrderBy(l => l.Service_Name);
         }
     }
 }
