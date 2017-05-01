@@ -32,11 +32,11 @@ namespace Hotel_Project
             libooking.ItemsSource = ht.booking.ToList();
         }
 
-        private void Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            libooking.Items.Refresh();
-            Save_Click(sender, null);
-        }
+        //private void Refresh_Click(object sender, RoutedEventArgs e)
+        //{
+        //    libooking.Items.Refresh();
+        //    Save_Click(sender, null);
+        //}
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
