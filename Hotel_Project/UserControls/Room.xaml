@@ -7,8 +7,20 @@
              mc:Ignorable="d"  Loaded="Room_Loaded" Background="Lavender"
              d:DesignHeight="650" d:DesignWidth="735">
     <Grid>
-        
-        
-    
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" x:Name="sg1"  AutoGeneratingColumn="sg1_AutoGeneratingColumn" />
+        <DataGrid Grid.Row="1" x:Name="sg2"  AutoGeneratingColumn="sg2_AutoGeneratingColumn" />
+
+        <Button Grid.Row="2"   x:Name="save1" Margin="4" Click="save1_Click_1">Save</Button>
+        <!--<Button Grid.Row="2"   x:Name="delete1" Margin="4" Click="delete1_Click">Delete</Button>-->
+        <TextBlock Grid.Row="3" x:Name="fehler" Foreground="Red" TextWrapping="Wrap" />
+
     </Grid>
 </UserControl>
