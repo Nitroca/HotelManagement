@@ -25,7 +25,7 @@ namespace Hotel_Project
             InitializeComponent();
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void Room_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Hotel_Project"
     mc:Ignorable="d"
-    Background="Lavender"
+    Background="Lavender" d:DesignHeight="650" d:DesignWidth="735"
     xmlns:gif="http://wpfanimatedgif.codeplex.com">
 
     <Grid VerticalAlignment="Stretch"

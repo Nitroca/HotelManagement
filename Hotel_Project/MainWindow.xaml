@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel_Project"
         mc:Ignorable="d" Background="Lavender"
-        Title="Hotel Management" Height="450" Width="535">
+        Title="Hotel Management" Height="650" Width="735">
 
     <DockPanel>
 
