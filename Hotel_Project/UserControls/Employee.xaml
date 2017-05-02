@@ -4,95 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hotel_Project"
-             Loaded="UserControl_Loaded"
+             Loaded="Employee_Loaded" Background="Lavender"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="735">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition
-                Height="Auto" />
-            <RowDefinition
-                Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition
-                Width="28*" />
-            <ColumnDefinition
-                Width="36*" />
-        </Grid.ColumnDefinitions>
-        <TextBlock
-            Text="Employee"
-            Grid.ColumnSpan="2"
-            FontSize="16"
-            TextAlignment="Center"
-            FontWeight="Bold" />
 
-        <ListBox
-            x:Name="employee"
-            Grid.Row="1"
-            Margin="10 10 10 10"
-            >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock
-                        Text="{Binding Path=Employee_Name}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <DataGrid Grid.Row="0" x:Name="sg1"  AutoGeneratingColumn="sg1_AutoGeneratingColumn" />
 
-        <StackPanel
-            DataContext="{Binding ElementName=employee, Path=SelectedItem}"
-            Grid.Column="1"
-            Grid.Row="1"
-            Margin="15 15 15 15">
-
-            <TextBlock
-                Text="Lastname" />
-            <TextBox
-                Text="{Binding Path=Employee_Name}"
-                />
-
-            <TextBlock
-                Text="Firstname" />
-            <TextBox
-                Text="{Binding Path=Employee_Firstname}"
-                 />
-
-            <TextBlock
-                Text="Employee ID" />
-            <TextBox
-                Text="{Binding Path=Employee_ID}"
-                MaxLength="15" />
-
-          
-            <!--<Binding Path="L_Gebdat" StringFormat="dd.MM.yyyy"/>-->
-
-            <!--<Button
-                Name="btnspeichern"
-                Height="23"
-                Margin="4"
-                Click="btnspeichern_Click">Änderungen in DB Speichern</Button>
-
-            <Button
-                Name="add"
-                Height="23"
-                Margin="4"
-                Click="add_Click">Lehrer hinzufügen
-            </Button>
-
-            <Button
-                Name="remove"
-                Height="23"
-                Margin="4"
-                Click="remove_Click">Lehrer löschen
-            </Button>-->
-
-            <TextBlock
-                Name="submitfehler"
-                FontWeight="Bold"
-                Foreground="Red" />
-
-        </StackPanel>
+        <Button Grid.Row="1"   x:Name="save1" Margin="4" Click="save1_Click_1">Save</Button>
+        <!--<Button Grid.Row="2"   x:Name="delete1" Margin="4" Click="delete1_Click">Delete</Button>-->
+        <TextBlock Grid.Row="2" x:Name="fehler" Foreground="Red" TextWrapping="Wrap" />
     
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel_Project;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,68 +11,45 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Hotel_Project
 {
     /// <summary>
-    /// Interaction logic for Reservation.xaml
+    /// Interaction logic for Reservation_Edit.xaml
     /// </summary>
-    public partial class Reservation : UserControl
+    public partial class Reservation_Edit : Window
     {
         hotelEntities ht = new hotelEntities();
 
-        public Reservation()
+        public Reservation_Edit()
         {
             InitializeComponent();
         }
 
-        private void Reservation_Loaded(object sender, RoutedEventArgs e)
+        private void ReservationEdit_Loaded(object sender, RoutedEventArgs e)
         {
             lireservation.ItemsSource = ht.reservation.ToList();
-            
         }
 
-
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                
                 int i = ht.SaveChanges();
                 fehler.Text = i + " rows affected";
             }
             catch (Exception e1)
             {
-                fehler.Text = e1.Message; //zeige alle inner Exception
+                fehler.Text = e1.Message;
                 for (var ex = e1.InnerException; ex != null; ex = ex.InnerException)
                 {
                     fehler.Text = fehler.Text + " / " + ex.Message;
                 }
 
-
             }
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-
-            reservation r = (reservation)lireservation.SelectedItem;
-            if(r != null)
-            {
-                ht.reservation.Remove(r);
-                lireservation.Items.Refresh();
-
-                Save_Click(sender, null);
-            }
-
-            
-        }
-
-        private void New_Click(object sender, RoutedEventArgs e)
-        {
-            Reservation_Edit re = new Reservation_Edit();
-            re.ShowDialog();
-        }
     }
 }

@@ -21,25 +21,47 @@ namespace Hotel_Project
     /// </summary>
     public partial class Employee : UserControl
     {
-        hotelEntities hotel = new hotelEntities();
+        hotelEntities ht = new hotelEntities();
 
         public Employee()
         {
             InitializeComponent();
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void Employee_Loaded(object sender, RoutedEventArgs e)
         {
-            var erg = hotel.employee;
+            var erg = ht.employee;
+
+            erg.Load();
+            sg1.ItemsSource = erg.Local;
+
+        }
+
+        private void save1_Click_1(object sender, RoutedEventArgs e)
+        {
+            // speichere Veränderungen im DatGrid in die Datenbank
             try
             {
-                erg.Load();
-            }catch(Exception e1)
-            {
-                submitfehler.Text = e1.Message;
+                var anz = ht.SaveChanges();
+                fehler.Text = String.Format("{0} row(s) affected", anz);
             }
-            employee.ItemsSource = erg.Local.OrderBy(l => l.Employee_Name);
-           
+            catch (Exception e1)
+            {
+
+                fehler.Text = e1.Message + " " +
+                    (e1.InnerException != null ? e1.InnerException.Message : "") + " " +
+                    (e1.InnerException != null && e1.InnerException.InnerException != null ? e1.InnerException.InnerException.Message : "");
+            }
         }
+
+
+        private void sg1_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            // jedes Mal, wenn eine Spalte im DataGrid autogneriert wird
+            if (!e.PropertyName.Contains("_"))   // Navigational Properties nicht anzeigen  (haben kein _ im Namen
+                e.Cancel = true;
+            e.Column.Header = e.PropertyName.Substring(0);
+        }
+
     }
 }

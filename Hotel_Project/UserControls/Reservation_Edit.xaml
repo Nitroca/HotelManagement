@@ -1,0 +1,48 @@
+﻿<Window x:Class="Hotel_Project.Reservation_Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel_Project"
+        mc:Ignorable="d" Loaded="ReservationEdit_Loaded"
+        Title="Reservation_Edit" Height="400" Width="300">
+    
+    <Grid>
+
+        <ListBox x:Name="lireservation" Grid.Column="0" Margin="0 0 295 0" Grid.Row="1"/>
+
+        <StackPanel  Margin="5"
+                    DataContext="{Binding ElementName=lireservation, Path=SelectedItem}">
+
+            <TextBlock Text="Reservation_ID: " />
+            <TextBox Text="{Binding Path=reservation_ID}"/>
+
+        </StackPanel>
+
+        <StackPanel Margin="5 50 5 5"
+            DataContext="{Binding ElementName=lireservation, Path=SelectedItem.customer}">
+            <TextBlock Text="Customer_ID: " />
+            <TextBox Text="{Binding Path=Customer_ID}" />
+            <TextBlock Text="" />
+            <TextBlock Text="Name: " />
+            <TextBox Text="{Binding Path=Customer_Name}" />
+            <TextBlock Text="" />
+            <TextBlock Text="Firstname: " />
+            <TextBox Text="{Binding Path=Customer_Firstname}" />
+            <TextBlock Text="" />
+            <TextBlock Text="Credit Card Number: (max. 10 nr)" />
+            <TextBox Text="{Binding Path=Customer_CreditCard_Nr}" />
+        </StackPanel>
+
+        <StackPanel >
+            <Button x:Name="Add" HorizontalAlignment="Center" Margin="0 250 0 0"
+                    Height="25" Width="70"
+                    Content="Add to DB"
+                    Click="Add_Click"/>
+
+            <TextBlock x:Name="fehler" Margin="10"
+                       Foreground="Red" TextWrapping="Wrap"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
