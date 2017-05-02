@@ -36,7 +36,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5"
-            DataContext="{Binding ElementName=lireservation, Path=SelectedItem.customer}">
+            DataContext="   ">
             <TextBlock Text="" />
             <TextBlock Text="" />
             <TextBlock Text="" />

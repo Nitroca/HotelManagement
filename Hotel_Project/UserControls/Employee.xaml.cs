@@ -41,5 +41,59 @@ namespace Hotel_Project
             employee.ItemsSource = erg.Local.OrderBy(l => l.Employee_Name);
            
         }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                employee s= new employee();
+                s.Employee_Name = "NEW_EMPLOYEE";
+                hotel.employee.Add(s);
+                UserControl_Loaded(sender, e);
+                employee.Items.Refresh();
+            }
+            catch (Exception e1)
+            {
+                fehler.Text = e1.Message;
+            }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            fehler.Text = "";
+            try
+            {
+                int anzzeilen = hotel.SaveChanges();
+                fehler.Text = anzzeilen + " Zeilen geändert";
+            }
+            catch (Exception e1)
+            {
+                fehler.Text = e1.Message;   // zeige alle Inner Exceptins
+                for (var ex = e1.InnerException; ex != null; ex = ex.InnerException)
+                    fehler.Text = fehler.Text + " / " + ex.Message;
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (employee.SelectedItem != null)
+                {
+                    var sl = (employee)employee.SelectedItem;
+
+                    hotel.employee.Remove(sl);
+
+                    employee.Items.Refresh();
+                    UserControl_Loaded(sender, e);
+                }
+            }
+            catch (Exception e1)
+            {
+
+                fehler.Text = e1.Message;
+            }
+        }
     }
-}
+    }
+
