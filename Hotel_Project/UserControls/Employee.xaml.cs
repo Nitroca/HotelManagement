@@ -21,47 +21,79 @@ namespace Hotel_Project
     /// </summary>
     public partial class Employee : UserControl
     {
-        hotelEntities ht = new hotelEntities();
+        hotelEntities hotel = new hotelEntities();
 
         public Employee()
         {
             InitializeComponent();
         }
 
-        private void Employee_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var erg = ht.employee;
-
-            erg.Load();
-            sg1.ItemsSource = erg.Local;
-
-        }
-
-        private void save1_Click_1(object sender, RoutedEventArgs e)
-        {
-            // speichere Veränderungen im DatGrid in die Datenbank
+            var erg = hotel.employee;
             try
             {
-                var anz = ht.SaveChanges();
-                fehler.Text = String.Format("{0} row(s) affected", anz);
+                erg.Load();
+            }catch(Exception e1)
+            {
+                submitfehler.Text = e1.Message;
+            }
+            employee.ItemsSource = erg.Local.OrderBy(l => l.Employee_Name);
+           
+        }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                employee s= new employee();
+                s.Employee_Name = "NEW_EMPLOYEE";
+                hotel.employee.Add(s);
+                UserControl_Loaded(sender, e);
+                employee.Items.Refresh();
+            }
+            catch (Exception e1)
+            {
+                fehler.Text = e1.Message;
+            }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            fehler.Text = "";
+            try
+            {
+                int anzzeilen = hotel.SaveChanges();
+                fehler.Text = anzzeilen + " Zeilen geändert";
+            }
+            catch (Exception e1)
+            {
+                fehler.Text = e1.Message;   // zeige alle Inner Exceptins
+                for (var ex = e1.InnerException; ex != null; ex = ex.InnerException)
+                    fehler.Text = fehler.Text + " / " + ex.Message;
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (employee.SelectedItem != null)
+                {
+                    var sl = (employee)employee.SelectedItem;
+
+                    hotel.employee.Remove(sl);
+
+                    employee.Items.Refresh();
+                    UserControl_Loaded(sender, e);
+                }
             }
             catch (Exception e1)
             {
 
-                fehler.Text = e1.Message + " " +
-                    (e1.InnerException != null ? e1.InnerException.Message : "") + " " +
-                    (e1.InnerException != null && e1.InnerException.InnerException != null ? e1.InnerException.InnerException.Message : "");
+                fehler.Text = e1.Message;
             }
         }
-
-
-        private void sg1_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            // jedes Mal, wenn eine Spalte im DataGrid autogneriert wird
-            if (!e.PropertyName.Contains("_"))   // Navigational Properties nicht anzeigen  (haben kein _ im Namen
-                e.Cancel = true;
-            e.Column.Header = e.PropertyName.Substring(0);
-        }
-
     }
-}
+    }
+

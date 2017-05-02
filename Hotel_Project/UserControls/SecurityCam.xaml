@@ -16,6 +16,8 @@
                 Height="Auto" />
             <RowDefinition
                 Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -29,44 +31,108 @@
 
        <Image
             x:Name="Cam1"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif" 
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam1.gif" 
             Grid.Column="0"
             Grid.Row="0"
+            
             Margin="10 10 10 10"
            />
         <Image
             x:Name="Cam2"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam2.gif"
             Grid.Column="1"
             Grid.Row="0"
+           
             Margin="10 10 10 10"
             />
         <Image
             x:Name="Cam3"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam3.gif"
             Grid.Column="2"
             Grid.Row="0"
             Margin="10 10 10 10"/>
 
         <Image
             x:Name="Cam4"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam4.gif"
             Grid.Column="0"
             Grid.Row="1"
             Margin="10 10 10 10"/>
         <Image
             x:Name="Cam5"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam5.gif"
             Grid.Column="1"
             Grid.Row="1"
             Margin="10 10 10 10"/>
         <Image
             x:Name="Cam6"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Cam1.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam6.gif"
             Grid.Column="2"
             Grid.Row="1"
             Margin="10 10 10 10"/>
 
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="2"
+            Margin="10 10 10 10">
+            <TextBlock
+                Margin="5 5 5 5"
+                FontSize="16"
+                FontStyle="Normal"
+                FontWeight="Bold">
+                  Cam 1 - Hallway camera
+            </TextBlock>
+            <TextBlock
+                Margin="5 5 5 5"
+                    FontSize="16"
+                    FontStyle="Normal"
+                    FontWeight="Bold">
+                Cam 2 - Kitchen camera
+            </TextBlock>
+            <TextBlock
+                Margin="5 5 5 5"
+                FontSize="16"
+                FontStyle="Normal"
+                FontWeight="Bold">
+                Cam 3 - Facility Map
+            </TextBlock>
+            <TextBlock
+                Margin="5 5 5 5"
+                FontSize="16"
+                FontStyle="Normal"
+                FontWeight="Bold">
+                Cam 4 - Office camera
+            </TextBlock>
+            <TextBlock
+                Margin="5 5 5 5"
+                FontSize="16"
+                FontStyle="Normal"
+                FontWeight="Bold">
+                Cam 5 - Wardrobe Camera
+            </TextBlock>
+            <TextBlock
+                Margin="5 5 5 5"
+                FontSize="16"
+                FontStyle="Normal"
+                FontWeight="Bold">
+                Cam 6 - Garage camera 
+            </TextBlock>
+        </StackPanel>
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="2"
+            Margin="10 80 10 10"
+            HorizontalAlignment="Center"
+            FontSize="53"
+            FontStyle="Normal"
+            FontWeight="Bold">
+            
+            Please report any <LineBreak />
+            noticeable issues!
+
+        </TextBlock>
+       
 
     </Grid>
 
