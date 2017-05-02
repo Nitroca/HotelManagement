@@ -67,5 +67,10 @@ namespace Hotel_Project
             
         }
 
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            Reservation_Edit re = new Reservation_Edit();
+            re.ShowDialog();
+        }
     }
 }
