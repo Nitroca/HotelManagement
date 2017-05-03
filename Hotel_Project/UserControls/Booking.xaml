@@ -39,7 +39,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Margin="0 145 10 0"
-                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.room.category}" >
+                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.room.category}">
             <TextBlock Text="Room: "/>
             <TextBox Text="{Binding Path=Category_Name}"/>
         </StackPanel>
@@ -77,9 +77,9 @@
                     DataContext="{Binding ElementName=libooking, Path=SelectedItem.additional}">
             <TextBox Text="{Binding Path=Additional_ID}" Height="17" Width="150"/>
         </WrapPanel>
-        <WrapPanel Grid.Column="1" Margin="202,370,10,0"
-                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.additional}">
-            <TextBox Text="{Binding Path=Extra_ID}" Height="17" Width="150"/>
+        <WrapPanel Grid.Column="1" Margin="201,370,10,0"
+                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.extra}">
+            <TextBox Text="{Binding Path=Extra_Name}" Height="17" Width="150"/>
         </WrapPanel>
 
         <WrapPanel Grid.Column="1" Margin="0,355,10,0">
@@ -87,25 +87,25 @@
             <TextBlock Text="Price: " Margin="215 40 0 0"/>
         </WrapPanel>
         <WrapPanel Grid.Column="1" Margin="0,410,0,0"
-                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.additional}">
-            <TextBox Text="{Binding Path=Service_ID}" Height="17" Width="150"/>
+                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.service}">
+            <TextBox Text="{Binding Path=Service_Name}" Height="17" Width="150"/>
         </WrapPanel>
-        <WrapPanel Grid.Column="1" Margin="202,410,0,0"
+        <WrapPanel Grid.Column="1" Margin="201,410,0,0"
                     DataContext="{Binding ElementName=libooking, Path=SelectedItem.additional}">
             <TextBox Text="{Binding Path=Additional_Price}" Height="17" Width="150"/>
         </WrapPanel>
 
 
         <WrapPanel Grid.Column="1" Margin="0 440 0 0">
-            <!--<Button x:Name="New" Margin="0 0 70 0"
+            <Button x:Name="New" Margin="0 0 80 0"
                     Content="New" Width="60"
-                    Click="New_Click"></Button>-->
+                    Click="New_Click"></Button>
 
-            <Button x:Name="Save" Margin="0 0 70 0"
+            <Button x:Name="Save" Margin="10 0 80 0"
                     Content="Save" Width="60"
                     Click="Save_Click"/>
 
-            <Button x:Name="Delete" Margin="150 0 0 0"
+            <Button x:Name="Delete" Margin="0 0 0 0"
                     Content="Delete" Width="60"
                     Click="Delete_Click"></Button>
 

@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hotel_Project"
-             mc:Ignorable="d" Background="Lavender" Loaded="Reservation_Loaded"
+             mc:Ignorable="d" Background="Lavender" 
+             Loaded="Reservation_Loaded" 
              d:DesignHeight="650" d:DesignWidth="735">
     <Grid>
         <Grid.RowDefinitions>
@@ -36,12 +37,12 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5"
-            DataContext="   ">
+            DataContext="{Binding ElementName=lireservation, Path=SelectedItem.customer}">
             <TextBlock Text="" />
             <TextBlock Text="" />
             <TextBlock Text="" />
             <TextBlock Text="Customer_ID: " />
-            <TextBox Text="{Binding Path=Customer_ID}" />
+            <TextBox Text="{Binding Path=Customer_ID}"/>
             <TextBlock Text="" />
             <TextBlock Text="Name: " />
             <TextBox Text="{Binding Path=Customer_Name}" />

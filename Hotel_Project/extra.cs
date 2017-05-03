@@ -18,6 +18,7 @@ namespace Hotel_Project
         public extra()
         {
             this.additional = new HashSet<additional>();
+            this.booking = new HashSet<booking>();
         }
     
         public int Extra_ID { get; set; }
@@ -26,5 +27,7 @@ namespace Hotel_Project
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<additional> additional { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<booking> booking { get; set; }
     }
 }

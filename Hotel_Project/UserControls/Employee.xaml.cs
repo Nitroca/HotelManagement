@@ -46,7 +46,7 @@ namespace Hotel_Project
         {
             try
             {
-                employee s= new employee();
+                employee s = new employee();
                 s.Employee_Name = "NEW_EMPLOYEE";
                 hotel.employee.Add(s);
                 UserControl_Loaded(sender, e);

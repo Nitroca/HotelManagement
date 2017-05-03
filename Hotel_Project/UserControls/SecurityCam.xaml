@@ -31,7 +31,7 @@
 
        <Image
             x:Name="Cam1"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam1.gif" 
+            gif:ImageBehavior.AnimatedSource="C:\Users\TienFu\Documents\visual studio 2015\Projects\Hotel_Project\Hotel_Project\Gifs\Cam1.gif" 
             Grid.Column="0"
             Grid.Row="0"
             
@@ -39,7 +39,7 @@
            />
         <Image
             x:Name="Cam2"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam2.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\TienFu\Documents\visual studio 2015\Projects\Hotel_Project\Hotel_Project\Gifs\Cam2.gif"
             Grid.Column="1"
             Grid.Row="0"
            
@@ -47,26 +47,26 @@
             />
         <Image
             x:Name="Cam3"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam3.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\TienFu\Documents\visual studio 2015\Projects\Hotel_Project\Hotel_Project\Gifs\Cam3.gif"
             Grid.Column="2"
             Grid.Row="0"
             Margin="10 10 10 10"/>
 
         <Image
             x:Name="Cam4"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam4.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\TienFu\Documents\visual studio 2015\Projects\Hotel_Project\Hotel_Project\Gifs\Cam4.gif"
             Grid.Column="0"
             Grid.Row="1"
             Margin="10 10 10 10"/>
         <Image
             x:Name="Cam5"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam5.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\TienFu\Documents\visual studio 2015\Projects\Hotel_Project\Hotel_Project\Gifs\Cam5.gif"
             Grid.Column="1"
             Grid.Row="1"
             Margin="10 10 10 10"/>
         <Image
             x:Name="Cam6"
-            gif:ImageBehavior.AnimatedSource="C:\Users\john\Source\Repos\HotelManagement\Hotel_Project\Gifs\Cam6.gif"
+            gif:ImageBehavior.AnimatedSource="C:\Users\TienFu\Documents\visual studio 2015\Projects\Hotel_Project\Hotel_Project\Gifs\Cam6.gif"
             Grid.Column="2"
             Grid.Row="1"
             Margin="10 10 10 10"/>

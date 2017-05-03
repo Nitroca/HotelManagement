@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace Hotel_Project
     public partial class Reservation : UserControl
     {
         hotelEntities ht = new hotelEntities();
+        
 
         public Reservation()
         {
@@ -29,8 +31,10 @@ namespace Hotel_Project
 
         private void Reservation_Loaded(object sender, RoutedEventArgs e)
         {
-            lireservation.ItemsSource = ht.reservation.ToList();
-            
+            //lireservation.ItemsSource = ht.reservation.ToList();
+            var erg = ht.reservation;
+            erg.Load();
+            lireservation.ItemsSource = erg.Local.OrderBy(l => l.Booking_ID);
         }
 
 
@@ -38,6 +42,7 @@ namespace Hotel_Project
         {
             try
             {
+
                 int i = ht.SaveChanges();
                 fehler.Text = i + " rows affected";
             }
@@ -55,14 +60,12 @@ namespace Hotel_Project
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-
-            reservation r = (reservation)lireservation.SelectedItem;
-            if(r != null)
-            {
-                ht.reservation.Remove(r);
+            if(lireservation.SelectedItem != null)
+            {       
+                var n = (reservation)lireservation.SelectedItem;
+                ht.reservation.Remove(n);
                 lireservation.Items.Refresh();
-
-                Save_Click(sender, null);
+                Reservation_Loaded(sender, e);
             }
 
             
@@ -70,8 +73,24 @@ namespace Hotel_Project
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
-            Reservation_Edit re = new Reservation_Edit();
-            re.ShowDialog();
+            
+            Random rd = new Random();
+            reservation r = new reservation();
+            int ranVal = rd.Next(0, 100000);
+            if (r.reservation_ID != ranVal)
+            {
+                r.reservation_ID = ranVal;
+            }
+
+            ht.reservation.Add(r);
+            Reservation_Loaded(sender, e);
+            lireservation.Items.Refresh();
+
+            customer c = new customer();
+            c.Customer_Name = "newUser";
+            ht.customer.Add(c);
         }
+
+        
     }
 }

@@ -65,13 +65,7 @@ namespace Hotel_Project
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
-            //booking b = (booking)libooking.SelectedItem;
-            //customer c = new customer();
-            //b.Booking_ID += 1;
-            //c.Customer_Name = "New";
-            //ht.booking.Add(b);
-            //ht.customer.Add(c);
-            //libooking.Items.Refresh();
+            
         }
 
         

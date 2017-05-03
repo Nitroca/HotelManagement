@@ -23,6 +23,8 @@
         <AssociationConnector Association="ehotelModel.FK_room_category" />
         <AssociationConnector Association="ehotelModel.FK_reservation_customer" />
         <AssociationConnector Association="ehotelModel.FK_service_employee" />
+        <AssociationConnector Association="ehotelModel.FK_booking_extra" />
+        <AssociationConnector Association="ehotelModel.FK_booking_service" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

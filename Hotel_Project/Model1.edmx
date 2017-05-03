@@ -26,6 +26,8 @@
           <Property Name="Booking_kids" Type="int" />
           <Property Name="Booking_CheckIN" Type="date" />
           <Property Name="Booking_CheckOUT" Type="date" />
+          <Property Name="Extra_ID" Type="int" />
+          <Property Name="Service_ID" Type="int" />
         </EntityType>
         <EntityType Name="category">
           <Key>
@@ -94,18 +96,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_additional_booking">
-          <End Role="booking" Type="Self.booking" Multiplicity="0..1" />
-          <End Role="additional" Type="Self.additional" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="booking">
-              <PropertyRef Name="Booking_ID" />
-            </Principal>
-            <Dependent Role="additional">
-              <PropertyRef Name="Booking_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_additional_extra">
           <End Role="extra" Type="Self.extra" Multiplicity="0..1" />
           <End Role="additional" Type="Self.additional" Multiplicity="*" />
@@ -142,6 +132,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_booking_extra">
+          <End Role="extra" Type="Self.extra" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extra">
+              <PropertyRef Name="Extra_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Extra_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_booking_room">
           <End Role="room" Type="Self.room" Multiplicity="0..1" />
           <End Role="booking" Type="Self.booking" Multiplicity="*" />
@@ -154,15 +156,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_reservation_booking">
-          <End Role="booking" Type="Self.booking" Multiplicity="0..1" />
-          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+        <Association Name="FK_booking_service">
+          <End Role="service" Type="Self.service" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="booking">
-              <PropertyRef Name="Booking_ID" />
+            <Principal Role="service">
+              <PropertyRef Name="Service_ID" />
             </Principal>
-            <Dependent Role="reservation">
-              <PropertyRef Name="Booking_ID" />
+            <Dependent Role="booking">
+              <PropertyRef Name="Service_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -213,10 +215,6 @@
           <EntitySet Name="room" EntityType="Self.room" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_additional_booking" Association="Self.FK_additional_booking">
-            <End Role="booking" EntitySet="booking" />
-            <End Role="additional" EntitySet="additional" />
-          </AssociationSet>
           <AssociationSet Name="FK_additional_extra" Association="Self.FK_additional_extra">
             <End Role="extra" EntitySet="extra" />
             <End Role="additional" EntitySet="additional" />
@@ -229,13 +227,17 @@
             <End Role="customer" EntitySet="customer" />
             <End Role="booking" EntitySet="booking" />
           </AssociationSet>
+          <AssociationSet Name="FK_booking_extra" Association="Self.FK_booking_extra">
+            <End Role="extra" EntitySet="extra" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
           <AssociationSet Name="FK_booking_room" Association="Self.FK_booking_room">
             <End Role="room" EntitySet="room" />
             <End Role="booking" EntitySet="booking" />
           </AssociationSet>
-          <AssociationSet Name="FK_reservation_booking" Association="Self.FK_reservation_booking">
+          <AssociationSet Name="FK_booking_service" Association="Self.FK_booking_service">
+            <End Role="service" EntitySet="service" />
             <End Role="booking" EntitySet="booking" />
-            <End Role="reservation" EntitySet="reservation" />
           </AssociationSet>
           <AssociationSet Name="FK_reservation_customer" Association="Self.FK_reservation_customer">
             <End Role="customer" EntitySet="customer" />
@@ -301,6 +303,14 @@
             <End Role="employee" EntitySet="employee" />
             <End Role="service" EntitySet="service" />
           </AssociationSet>
+          <AssociationSet Name="FK_booking_extra" Association="ehotelModel.FK_booking_extra">
+            <End Role="extra" EntitySet="extra" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_booking_service" Association="ehotelModel.FK_booking_service">
+            <End Role="service" EntitySet="service" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -340,6 +350,10 @@
           <NavigationProperty Name="customer" Relationship="ehotelModel.FK_booking_customer" FromRole="booking" ToRole="customer" />
           <NavigationProperty Name="room" Relationship="ehotelModel.FK_booking_room" FromRole="booking" ToRole="room" />
           <NavigationProperty Name="reservation" Relationship="ehotelModel.FK_reservation_booking" FromRole="booking" ToRole="reservation" />
+          <Property Name="Extra_ID" Type="Int32" />
+          <Property Name="Service_ID" Type="Int32" />
+          <NavigationProperty Name="extra" Relationship="ehotelModel.FK_booking_extra" FromRole="booking" ToRole="extra" />
+          <NavigationProperty Name="service" Relationship="ehotelModel.FK_booking_service" FromRole="booking" ToRole="service" />
         </EntityType>
         <EntityType Name="category">
           <Key>
@@ -377,6 +391,7 @@
           <Property Name="Extra_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Extra_Price" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="additional" Relationship="ehotelModel.FK_additional_extra" FromRole="extra" ToRole="additional" />
+          <NavigationProperty Name="booking" Relationship="ehotelModel.FK_booking_extra" FromRole="extra" ToRole="booking" />
         </EntityType>
         <EntityType Name="reservation">
           <Key>
@@ -408,6 +423,7 @@
           <Property Name="Employee_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="additional" Relationship="ehotelModel.FK_additional_service" FromRole="service" ToRole="additional" />
           <NavigationProperty Name="employee" Relationship="ehotelModel.FK_service_employee" FromRole="service" ToRole="employee" />
+          <NavigationProperty Name="booking" Relationship="ehotelModel.FK_booking_service" FromRole="service" ToRole="booking" />
         </EntityType>
         <Association Name="FK_additional_booking">
           <End Type="ehotelModel.booking" Role="booking" Multiplicity="0..1" />
@@ -517,6 +533,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_booking_extra">
+          <End Type="ehotelModel.extra" Role="extra" Multiplicity="0..1" />
+          <End Type="ehotelModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extra">
+              <PropertyRef Name="Extra_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Extra_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_service">
+          <End Type="ehotelModel.service" Role="service" Multiplicity="0..1" />
+          <End Type="ehotelModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Service_ID" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -548,6 +588,8 @@
           <EntitySetMapping Name="booking">
             <EntityTypeMapping TypeName="ehotelModel.booking">
               <MappingFragment StoreEntitySet="booking">
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+                <ScalarProperty Name="Extra_ID" ColumnName="Extra_ID" />
                 <ScalarProperty Name="Booking_CheckOUT" ColumnName="Booking_CheckOUT" />
                 <ScalarProperty Name="Booking_CheckIN" ColumnName="Booking_CheckIN" />
                 <ScalarProperty Name="Booking_kids" ColumnName="Booking_kids" />

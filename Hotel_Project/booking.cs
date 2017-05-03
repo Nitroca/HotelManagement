@@ -28,6 +28,8 @@ namespace Hotel_Project
         public Nullable<int> Booking_kids { get; set; }
         public Nullable<System.DateTime> Booking_CheckIN { get; set; }
         public Nullable<System.DateTime> Booking_CheckOUT { get; set; }
+        public Nullable<int> Extra_ID { get; set; }
+        public Nullable<int> Service_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<additional> additional { get; set; }
@@ -35,5 +37,7 @@ namespace Hotel_Project
         public virtual room room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<reservation> reservation { get; set; }
+        public virtual extra extra { get; set; }
+        public virtual service service { get; set; }
     }
 }
