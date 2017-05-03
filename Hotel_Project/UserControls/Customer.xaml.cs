@@ -21,7 +21,7 @@ namespace Hotel_Project
     /// </summary>
     public partial class Customer : UserControl
     {
-        hotelEntities ht = new hotelEntities();
+        hotelEntities hotel = new hotelEntities();
 
         public Customer()
         {
@@ -30,38 +30,59 @@ namespace Hotel_Project
 
         private void Customer_Loaded(object sender, RoutedEventArgs e)
         {
-            var erg = ht.customer;
 
-            erg.Load();
-            sg1.ItemsSource = erg.Local;
-        }
 
-        private void save1_Click_1(object sender, RoutedEventArgs e)
-        {
-            // speichere Veränderungen im DatGrid in die Datenbank
+
+            //var erg = hotel.customer;
+            //erg.Load();
+            //sg1.ItemsSource = erg.Local;
+
+            var erg = hotel.customer;
             try
             {
-                var anz = ht.SaveChanges();
-                fehler.Text = String.Format("{0} row(s) affected", anz);
+                erg.Load();
             }
             catch (Exception e1)
             {
-
-                fehler.Text = e1.Message + " " +
-                    (e1.InnerException != null ? e1.InnerException.Message : "") + " " +
-                    (e1.InnerException != null && e1.InnerException.InnerException != null ? e1.InnerException.InnerException.Message : "");
+                fehler.Text = e1.Message;
             }
+            //customer.ItemsSource = erg.Local.OrderBy(l => l.Customer_Name);
         }
 
 
-        private void sg1_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            // jedes Mal, wenn eine Spalte im DataGrid autogneriert wird
-            if (!e.PropertyName.Contains("_"))   // Navigational Properties nicht anzeigen  (haben kein _ im Namen
-                e.Cancel = true;
-            e.Column.Header = e.PropertyName.Substring(0);
-        }
 
-        
+
+
+
+
+        //datagrid
+
+        //private void save1_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    // speichere Veränderungen im DatGrid in die Datenbank
+        //    try
+        //    {
+        //        var anz = hotel.SaveChanges();
+        //        fehler.Text = String.Format("{0} row(s) affected", anz);
+        //    }
+        //    catch (Exception e1)
+        //    {
+
+        //        fehler.Text = e1.Message + " " +
+        //            (e1.InnerException != null ? e1.InnerException.Message : "") + " " +
+        //            (e1.InnerException != null && e1.InnerException.InnerException != null ? e1.InnerException.InnerException.Message : "");
+        //    }
+        //}
+
+
+        //private void sg1_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        //{
+        //    // jedes Mal, wenn eine Spalte im DataGrid autogneriert wird
+        //    if (!e.PropertyName.Contains("_"))   // Navigational Properties nicht anzeigen  (haben kein _ im Namen
+        //        e.Cancel = true;
+        //    e.Column.Header = e.PropertyName.Substring(0);
+        //}
+
+
     }
 }

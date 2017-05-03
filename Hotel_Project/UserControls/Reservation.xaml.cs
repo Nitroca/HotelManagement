@@ -44,7 +44,7 @@ namespace Hotel_Project
             {
 
                 int i = ht.SaveChanges();
-                fehler.Text = i + " rows affected";
+                fehler.Text = i + " row(s) affected";
             }
             catch (Exception e1)
             {
@@ -68,6 +68,8 @@ namespace Hotel_Project
                 Reservation_Loaded(sender, e);
             }
 
+            Save_Click(sender, e);
+
             
         }
 
@@ -86,9 +88,8 @@ namespace Hotel_Project
             Reservation_Loaded(sender, e);
             lireservation.Items.Refresh();
 
-            customer c = new customer();
-            c.Customer_Name = "newUser";
-            ht.customer.Add(c);
+            Save_Click(sender, e);
+
         }
 
         

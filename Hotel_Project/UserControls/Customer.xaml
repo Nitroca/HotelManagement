@@ -4,20 +4,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hotel_Project"
-             mc:Ignorable="d" Loaded="Customer_Loaded"
+             mc:Ignorable="d" Loaded="Customer_Loaded" Background="Lavender"
              d:DesignHeight="650" d:DesignWidth="735">
     <Grid>
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="36*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Customers" HorizontalAlignment="Center" Grid.ColumnSpan="2"
+                   FontSize="18" FontWeight="Bold" Margin="0 10 0 0"/>
+
+        <ListBox x:Name="licustomer" Grid.Column="0" Margin="20,50,20,30"
+                 DisplayMemberPath="customer_ID"/>
+
+        <StackPanel Grid.Column="1" Margin="10 50 0 0">
+            <TextBlock Text="Customer Name:" Margin="10"/>
+
+            <TextBlock x:Name="fehler" Margin="10" Foreground="Red"
+                    TextWrapping="Wrap" />
+        </StackPanel>
+
+        
+        
+        <!--DataGrid-->
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="0" x:Name="sg1"  AutoGeneratingColumn="sg1_AutoGeneratingColumn" />
+        --><!--<DataGrid Grid.Row="1" x:Name="sg2"  AutoGeneratingColumn="sg2_AutoGeneratingColumn" />--><!--
 
-        <Button Grid.Row="1"   x:Name="save1" Margin="4" Click="save1_Click_1">Save</Button>
-        <!--<Button Grid.Row="2"   x:Name="delete1" Margin="4" Click="delete1_Click">Delete</Button>-->
-        <TextBlock Grid.Row="2" x:Name="fehler" Foreground="Red" TextWrapping="Wrap" />
+        <Button Grid.Row="2"   x:Name="save1" Margin="4" Click="save1_Click_1">Save</Button>
+        --><!--<Button Grid.Row="2"   x:Name="delete1" Margin="4" Click="delete1_Click">Delete</Button>--><!--
+        <TextBlock Grid.Row="3" x:Name="fehler" Foreground="Red" TextWrapping="Wrap" />-->
+
+
     </Grid>
 </UserControl>

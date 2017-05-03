@@ -31,32 +31,20 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" 
                     DataContext="{Binding ElementName=lireservation, Path=SelectedItem}">
 
-            <TextBlock Text="Reservation_ID: " />
-            <TextBox Text="{Binding Path=reservation_ID}"/>
-
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5"
-            DataContext="{Binding ElementName=lireservation, Path=SelectedItem.customer}">
-            <TextBlock Text="" />
-            <TextBlock Text="" />
-            <TextBlock Text="" />
             <TextBlock Text="Customer_ID: " />
             <TextBox Text="{Binding Path=Customer_ID}"/>
             <TextBlock Text="" />
             <TextBlock Text="Name: " />
-            <TextBox Text="{Binding Path=Customer_Name}" />
+            <TextBox Text="{Binding Path=customer.Customer_Name}" />
             <TextBlock Text="" />
             <TextBlock Text="Firstname: " />
-            <TextBox Text="{Binding Path=Customer_Firstname}" />
+            <TextBox Text="{Binding Path=customer.Customer_Firstname}" />
             <TextBlock Text="" />
             <TextBlock Text="Credit Card Number: " />
-            <TextBox Text="{Binding Path=Customer_CreditCard_Nr}" />
-            <TextBlock Text="" />
-            <TextBlock Text="" />
+            <TextBox Text="{Binding Path=customer.Customer_CreditCard_Nr}" />
         </StackPanel>
 
-        <WrapPanel Grid.Row="1" Grid.Column="1" Margin="0 250 0 0">
+        <WrapPanel Grid.Row="1" Grid.Column="1" Margin="0 200 0 0">
 
             <Button x:Name="New" Margin="10 0 30 0"
                     Height="25" Width="70"
@@ -76,6 +64,11 @@
             <TextBlock x:Name="fehler" Margin="10"
                        Foreground="Red" TextWrapping="Wrap"/>
         </WrapPanel>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="10 400 10 10"
+                   FontSize="16" TextWrapping="Wrap">
+            Important: First, create a new customer then a new reservation!
+        </TextBlock>
 
 
     </Grid>
