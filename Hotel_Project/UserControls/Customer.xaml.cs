@@ -30,27 +30,91 @@ namespace Hotel_Project
 
         private void Customer_Loaded(object sender, RoutedEventArgs e)
         {
+            var erg = hotel.customer;
+            erg.Load();
+            //lireservation.ItemsSource = ht.reservation.ToList();
 
-
+            licustomer.ItemsSource = erg.Local.OrderBy(l => l.Customer_ID);
 
             //var erg = hotel.customer;
-            //erg.Load();
-            //sg1.ItemsSource = erg.Local;
+            //try
+            //{
+            //    erg.Load();
+            //}
+            //catch (Exception e1)
+            //{
+            //    fehler.Text = e1.Message;
+            //}
 
-            var erg = hotel.customer;
+        }
+
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
-                erg.Load();
+                Random rd = new Random();
+                customer c = new customer();
+                int ranVal = rd.Next(0, 100000);
+                if (c.Customer_ID != ranVal)
+                {
+                    c.Customer_ID = ranVal;
+                }
+
+                hotel.customer.Add(c);
+                Customer_Loaded(sender, e);
+                licustomer.Items.Refresh();
+
+                Save_Click(sender, e);
+
+                //customer c = new customer();
+                //s.Employee_Name = "NEW_EMPLOYEE";
+                //hotel.employee.Add(s);
+                //UserControl_Loaded(sender, e);
+                //employee.Items.Refresh();
             }
             catch (Exception e1)
             {
                 fehler.Text = e1.Message;
             }
-            //customer.ItemsSource = erg.Local.OrderBy(l => l.Customer_Name);
         }
 
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            fehler.Text = "";
+            try
+            {
+                int anzzeilen = hotel.SaveChanges();
+                fehler.Text = anzzeilen + " row(s) affected";
+            }
+            catch (Exception e1)
+            {
+                fehler.Text = e1.Message;   // zeige alle Inner Exceptins
+                for (var ex = e1.InnerException; ex != null; ex = ex.InnerException)
+                    fehler.Text = fehler.Text + " / " + ex.Message;
+            }
+        }
 
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (licustomer.SelectedItem != null)
+                {
+                    var sl = (customer)licustomer.SelectedItem;
 
+                    hotel.customer.Remove(sl);
+
+                    licustomer.Items.Refresh();
+                    Customer_Loaded(sender, e);
+                }
+            }
+            catch (Exception e1)
+            {
+
+                fehler.Text = e1.Message;
+            }
+        }
 
 
 

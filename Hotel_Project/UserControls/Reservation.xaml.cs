@@ -31,9 +31,10 @@ namespace Hotel_Project
 
         private void Reservation_Loaded(object sender, RoutedEventArgs e)
         {
-            //lireservation.ItemsSource = ht.reservation.ToList();
             var erg = ht.reservation;
             erg.Load();
+            //lireservation.ItemsSource = ht.reservation.ToList();
+
             lireservation.ItemsSource = erg.Local.OrderBy(l => l.Booking_ID);
         }
 

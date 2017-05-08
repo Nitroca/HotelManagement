@@ -39,15 +39,19 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Margin="0 145 10 0"
-                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.room.category}">
+                    DataContext="{Binding ElementName=libooking, Path=SelectedItem.room.category}"> 
             <TextBlock Text="Room: "/>
             <TextBox Text="{Binding Path=Category_Name}"/>
+            
+            <TextBlock/>
+            <TextBlock/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Margin="0 183 10 0"
                     DataContext="{Binding ElementName=libooking, Path=SelectedItem.room}">
+            
             <TextBlock Text="Room Price: "/>
-            <TextBox Text="{Binding Path=Room_Price}"/>
+            <TextBlock Text="{Binding Path=Room_Price}" FontWeight="Bold"/>
         </StackPanel>
 
         <WrapPanel Grid.Column="1" Margin="0,222,10,0">

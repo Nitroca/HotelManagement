@@ -20,7 +20,7 @@ namespace Hotel_Project
     /// </summary>
     public partial class Booking : UserControl
     {
-        hotelEntities ht = new hotelEntities();
+        hotelEntities hotel = new hotelEntities();
 
         public Booking()
         {
@@ -29,7 +29,7 @@ namespace Hotel_Project
 
         private void Booking_Loaded(object sender, RoutedEventArgs e)
         {
-            libooking.ItemsSource = ht.booking.ToList();
+            libooking.ItemsSource = hotel.booking.ToList();
         }
 
 
@@ -37,7 +37,7 @@ namespace Hotel_Project
         {
             try
             {
-                int i = ht.SaveChanges();
+                int i = hotel.SaveChanges();
                 fehler.Text = i + " row(s) affected";
             }
             catch (Exception e1)
@@ -56,16 +56,39 @@ namespace Hotel_Project
             booking b = (booking)libooking.SelectedItem;
             if (b != null)
             {
-                ht.booking.Remove(b);
+                hotel.booking.Remove(b);
                 libooking.Items.Refresh();
 
                 Save_Click(sender, null);
             }
+
+
         }
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                Random rd = new Random();
+                booking b = new booking();
+
+                int ranVal = rd.Next(0, 100000);
+                if (b.Booking_ID != ranVal)
+                {
+                    b.Booking_ID = ranVal;
+                }
+
+                hotel.booking.Add(b);
+                Booking_Loaded(sender, e);
+                libooking.Items.Refresh();
+
+                Save_Click(sender, e);
+
+            }
+            catch (Exception e1)
+            {
+                fehler.Text = e1.Message;
+            }
         }
 
         

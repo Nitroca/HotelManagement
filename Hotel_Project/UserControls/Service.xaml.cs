@@ -68,7 +68,7 @@ namespace Hotel_Project
             try
             {
                 int anzzeilen = hotel.SaveChanges();
-                fehler.Text = anzzeilen + " Zeilen geändert";
+                fehler.Text = anzzeilen + " row(s) affected";
             }
             catch (Exception e1)
             {
